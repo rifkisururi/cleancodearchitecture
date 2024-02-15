@@ -1,0 +1,241 @@
+CREATE DATABASE dbTES_RIFKIAHMADSURURI
+GO
+
+use dbTES_RIFKIAHMADSURURI
+go
+
+CREATE TABLE [dbo].[Customer](
+	[CustId] [varchar](10) NOT NULL,
+	[CustName] [varchar](50) NULL,
+ CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
+(
+	[CustId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[Price](
+	[ProductCode] [varchar](10) NULL,
+	[PriceValue] [money] NULL,
+	[PriceValidateFrom] [date] NULL,
+	[PriceValidateTo] [date] NULL
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[Product](
+	[ProductCode] [varchar](10) NOT NULL,
+	[ProductName] [varchar](255) NULL,
+ CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED 
+(
+	[ProductCode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[SalesOrder](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[OrderDate] [datetime] NOT NULL,
+	[SalesOrderNo] [varchar](10) NULL,
+	[CustCode] [varchar](10) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[SalesOrderDetail](
+	[Id] [uniqueidentifier] NOT NULL,
+	[SalesOrderNo] [varchar](10) NULL,
+	[ProductCode] [varchar](10) NULL,
+	[Qty] [int] NULL,
+	[Price] [money] NULL,
+ CONSTRAINT [PK_SalesOrderDetail] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[SalesOrderInterface](
+	[SalesOrderNo] [varchar](10) NULL,
+	[Payload] [varchar](255) NULL
+) ON [PRIMARY]
+GO
+
+----------------------------
+-- Menyisipkan 10 data nama lengkap orang Indonesia
+INSERT INTO Customer (CustId, CustName)
+VALUES
+    ('C001', 'Agus Santoso'),
+    ('C002', 'Budi Santoso'),
+    ('C003', 'Citra Putri'),
+    ('C004', 'Dewi Lestari'),
+    ('C005', 'Eko Wijaya'),
+    ('C006', 'Fitri Indah'),
+    ('C007', 'Gunawan Setiawan'),
+    ('C008', 'Hani Suryani'),
+    ('C009', 'Irfan Maulana'),
+    ('C010', 'Joko Susilo');
+go	
+-- Menyisipkan 50 data produk Indonesia
+INSERT INTO Product (ProductCode, ProductName)
+VALUES
+    ('P001', 'Batik Shirt'),
+    ('P002', 'Wayang Kulit Puppet'),
+    ('P003', 'Kopi Lampung'),
+    ('P004', 'Angklung Instrument'),
+    ('P005', 'Songket Fabric'),
+    ('P006', 'Rattan Basket'),
+    ('P007', 'Gamelan Music CD'),
+    ('P008', 'Lurik Cloth'),
+    ('P009', 'Keris Replica'),
+    ('P010', 'Balinese Sarong'),
+    ('P011', 'Borneo Hat'),
+    ('P012', 'Sasando Music Instrument'),
+    ('P013', 'Javanese Puppet'),
+    ('P014', 'Sumatran Coffee Beans'),
+    ('P015', 'Indonesian Song Lyrics Book'),
+    ('P016', 'Wooden Wayang Golek Doll'),
+    ('P017', 'Traditional Batik Fabric'),
+    ('P018', 'Bamboo Wind Chimes'),
+    ('P019', 'Kalimantan Pepper'),
+    ('P020', 'Barong Dance Mask'),
+    ('P021', 'Java Script Programming Book'),
+    ('P022', 'Spice Islands Cooking Set'),
+    ('P023', 'Bali Beach Towel'),
+    ('P024', 'Toraja Coffee'),
+    ('P025', 'Rattan Furniture Set'),
+    ('P026', 'Borneo Tribal Mask'),
+    ('P027', 'Lombok Pottery'),
+    ('P028', 'Java Jazz Music Album'),
+    ('P029', 'Bali Sea Salt'),
+    ('P030', 'Traditional Indonesian Games Set'),
+    ('P031', 'Moluccas Nutmeg'),
+    ('P032', 'Keroncong Music Instrument'),
+    ('P033', 'Sumatran Batik Scarf'),
+    ('P034', 'Indonesian Folktales Book'),
+    ('P035', 'Puppet Shadow Play Set'),
+    ('P036', 'Sumbawa Honey'),
+    ('P037', 'Balinese Wooden Carving'),
+    ('P038', 'Minangkabau Song CD'),
+    ('P039', 'Java Ceramic Plates Set'),
+    ('P040', 'Wayang Kulit Leather Puppet'),
+    ('P041', 'Papuan Handwoven Bag'),
+    ('P042', 'Balinese Painting'),
+    ('P043', 'Borneo Rainforest Tea'),
+    ('P044', 'Indonesian Dance DVD'),
+    ('P045', 'Traditional Gamelan Gong'),
+    ('P046', 'Lombok Pearl Necklace'),
+    ('P047', 'Java Batik Wall Hanging'),
+    ('P048', 'Wooden Kalimba Thumb Piano'),
+    ('P049', 'Bali Spices Collection'),
+    ('P050', 'Sumatran Elephant Carving');
+go
+
+INSERT INTO Price (ProductCode, PriceValue, PriceValidateFrom, PriceValidateTo)
+VALUES
+('P001',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P001',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P002',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P002',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P003',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P003',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P004',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P004',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P005',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P005',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P006',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P006',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P007',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P007',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P008',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P008',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P009',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P009',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0010',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0010',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0011',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0011',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0012',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0012',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0013',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0013',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0014',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0014',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0015',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0015',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0016',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0016',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0017',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0017',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0018',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0018',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0019',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0019',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0020',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0020',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0021',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0021',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0022',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0022',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0023',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0023',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0024',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0024',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0025',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0025',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0026',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0026',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0027',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0027',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0028',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0028',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0029',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0029',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0030',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0030',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0031',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0031',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0032',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0032',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0033',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0033',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0034',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0034',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0035',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0035',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0036',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0036',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0037',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0037',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0038',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0038',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0039',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0039',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0040',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0040',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0041',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0041',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0042',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0042',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0043',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0043',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0044',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0044',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0045',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0045',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0046',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0046',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0047',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0047',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0048',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0048',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0049',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0049',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31'),
+('P0050',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2023-01-01','2023-12-31'),
+('P0050',CAST(RAND() * (200000 - 10000) + 10000 AS MONEY),' 2024-01-01','2024-12-31')
+go
+
+

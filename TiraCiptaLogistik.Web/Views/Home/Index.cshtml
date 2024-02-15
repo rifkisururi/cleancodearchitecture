@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <table class="table">
+        <tr>
+            <td>Customer</td>
+            <td id="cutomerList">
+                <select>
+                    @foreach (var item in @ViewBag.dtCustomer)
+                    {
+                        <option value="@item.CustId">@item.CustName</option>
+                    }
+                </select>
+            </td>
+            <td><button class="btn btn-info" id="addProduk">Add Produk</button></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table id="detailProduk" class="table">
+                    <thead>
+                        <th>
+                            Produk name
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Qty
+                        </th>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-primary" id="saveData">Save Data</button>
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+        var dtCustomer = @Html.Raw(Json.Serialize(@ViewBag.dtCustomer));
+        var dtProduct = @Html.Raw(Json.Serialize(@ViewBag.dtProdukPrice));
+    </script>
+}
+

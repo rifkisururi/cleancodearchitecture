@@ -1,0 +1,11 @@
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\bin\Debug\net8.0\TiraCiptaLogistik.ViewModel.deps.json
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\bin\Debug\net8.0\TiraCiptaLogistik.ViewModel.dll
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\bin\Debug\net8.0\TiraCiptaLogistik.ViewModel.pdb
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\obj\Debug\net8.0\TiraCiptaLogistik.ViewModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\obj\Debug\net8.0\TiraCiptaLogistik.ViewModel.AssemblyInfoInputs.cache
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\obj\Debug\net8.0\TiraCiptaLogistik.ViewModel.AssemblyInfo.cs
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\obj\Debug\net8.0\TiraCiptaLogistik.ViewModel.csproj.CoreCompileInputs.cache
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\obj\Debug\net8.0\TiraCiptaLogistik.ViewModel.dll
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\obj\Debug\net8.0\refint\TiraCiptaLogistik.ViewModel.dll
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\obj\Debug\net8.0\TiraCiptaLogistik.ViewModel.pdb
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.ViewModel\obj\Debug\net8.0\ref\TiraCiptaLogistik.ViewModel.dll

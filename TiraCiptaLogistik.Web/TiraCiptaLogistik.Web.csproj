@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a0756cdc-a0fd-44b6-bb71-4b5943e16d53</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BetterStack.Logs.Serilog" Version="1.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TiraCiptaLogistik.Domain\TiraCiptaLogistik.Domain.csproj" />
+    <ProjectReference Include="..\TiraCiptaLogistik.ViewModel\TiraCiptaLogistik.ViewModel.csproj" />
+  </ItemGroup>
+
+</Project>

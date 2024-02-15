@@ -1,0 +1,17 @@
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\bin\Debug\net8.0\TiraCiptaLogistik.DataAccess.deps.json
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\bin\Debug\net8.0\TiraCiptaLogistik.DataAccess.dll
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\bin\Debug\net8.0\TiraCiptaLogistik.DataAccess.pdb
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\bin\Debug\net8.0\TiraCiptaLogistik.Core.dll
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\bin\Debug\net8.0\TiraCiptaLogistik.Domain.dll
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\bin\Debug\net8.0\TiraCiptaLogistik.Core.pdb
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\bin\Debug\net8.0\TiraCiptaLogistik.Domain.pdb
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\TiraCiptaLogistik.DataAccess.csproj.AssemblyReference.cache
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\TiraCiptaLogistik.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\TiraCiptaLogistik.DataAccess.AssemblyInfoInputs.cache
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\TiraCiptaLogistik.DataAccess.AssemblyInfo.cs
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\TiraCiptaLogistik.DataAccess.csproj.CoreCompileInputs.cache
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\TiraCiptaLogistik.DataAccess.csproj.CopyComplete
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\TiraCiptaLogistik.DataAccess.dll
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\refint\TiraCiptaLogistik.DataAccess.dll
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\TiraCiptaLogistik.DataAccess.pdb
+D:\code\personal\dotnet\TiraCiptaLogistik\TiraCiptaLogistik.DataAccess\obj\Debug\net8.0\ref\TiraCiptaLogistik.DataAccess.dll
